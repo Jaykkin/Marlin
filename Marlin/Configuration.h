@@ -313,7 +313,7 @@
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
-#define HOTEND_OFFSET_X { 0.00, 34.40 } // (mm) relative X-offset for each nozzle
+//#define HOTEND_OFFSET_X { 0.00, 34.40 } // (mm) relative X-offset for each nozzle
 //#define HOTEND_OFFSET_Y { 0.00, 0.00 }  // (mm) relative Y-offset for each nozzle
 //#define HOTEND_OFFSET_Z { 0.0, 0.00 }  // (mm) relative Z-offset for each nozzle
 
@@ -489,19 +489,19 @@
 #if ENABLED(PIDTEMP)
   //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
   //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
-  //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
+  #define PID_PARAMS_PER_HOTEND   // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
 
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify between 1 and HOTENDS values per array.
     // If fewer than EXTRUDER values are provided, the last element will be repeated.
-    #define DEFAULT_Kp_LIST {  27.28,  20.99 }
-    #define DEFAULT_Ki_LIST {   4.82,  10.45 }
-    #define DEFAULT_Kd_LIST {  38.61,  75.93 }
+    #define DEFAULT_Kp_LIST {  60.53,  23.77 }
+    #define DEFAULT_Ki_LIST {  11.75,  2.63  }
+    #define DEFAULT_Kd_LIST {  77.94,  53.77 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    #define DEFAULT_Kp 23.77
+    #define DEFAULT_Ki 2.63
+    #define DEFAULT_Kd 53.77
   #endif
 #endif // PIDTEMP
 
@@ -1127,8 +1127,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 225
-#define Y_BED_SIZE 145
+#define X_BED_SIZE 264.4
+#define Y_BED_SIZE 154
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
